@@ -1,0 +1,98 @@
+
+public class Main
+{
+	public static void main(String[] args) {
+		String imie="Dawid A";
+		System.out.println("zad1");
+            System.out.println(imie);
+        System.out.println("zad2");
+            System.out.println(imie.length());
+        System.out.println("zad3");
+        String a="Ala";
+        String b=" ma";
+        String c=" kota";
+        System.out.println(a+b+c);
+        System.out.println("zad4");
+        System.out.println("                    *");
+        System.out.println("                    * *");
+        System.out.println("                    * * *");
+        System.out.println("* * * * * * * * * * * * * *");
+        System.out.println("* * * * * * * * * * * * * * *");
+        System.out.println("* * * * * * * * * * * * * *");
+        System.out.println("                    * * *");
+        System.out.println("                    * *");
+        System.out.println("                    *");
+        
+        
+        System.out.println("        *");
+        System.out.println("       * *");
+        System.out.println("      * * *");
+        System.out.println("     * * * *");
+        System.out.println("    * * * * *");
+        System.out.println("   * * * * * *");
+        System.out.println("    * * * * *");
+        System.out.println("     * * * *");
+        System.out.println("      * * *");
+        System.out.println("       * *");
+        System.out.println("        *");
+	    System.out.println("zad5");
+	    String amk="Ala ma kota";
+	    System.out.println(amk.replace("a","e"));
+	    System.out.println("zad6");
+	    System.out.println(amk.toUpperCase());
+	    System.out.println(amk.toLowerCase());
+	    
+	   System.out.println("zad7");
+	   char c1='A';
+	   char c2='!';
+	   char c3='@';
+	   char c4='>';
+	   char c5='~';
+	   char c6='\b';
+	   char c7='\n';
+	   System.out.println(c1+"="+(int)c1);
+	   System.out.println(c2+"="+(int)c2);
+	   System.out.println(c3+"="+(int)c3);
+	   System.out.println(c4+"="+(int)c4);
+	   System.out.println(c5+"="+(int)c5);
+	   System.out.println("\\b="+(int)c6);
+	   System.out.println("\\n="+(int)c7);
+       
+       System.out.println("zad8");
+       char q1='a';
+       char q2='z';
+       char q3='A';
+       char q4='Z';
+       char q5='0';
+       char q6='9';
+       System.out.println("Zakres kodow ascii dla malych liter:"+(int)q1+"-"+(int)q2);
+       System.out.println("Zakres kodow ascii dla duzych liter:"+(int)q3+"-"+(int)q4);
+       System.out.println("Zakres kodow ascii dla liczb:"+(int)q5+"-"+(int)q6);
+        
+       System.out.println("zad9");
+       String s1="Grzesiek nie wiedział dlaczego %s jest tak drapieżnym %s mimo, że jego %s na to wskazuje.";
+       String s2=String.format(s1,"odp1","odp2","odp3");
+       System.out.println(s2);
+	   System.out.println("zad10");
+	   
+	   String sq1="%s to najlepsza książka napisana przez %s";
+       String sq2=String.format(sq1,"TytulXYZ","AutorXYZ.");
+       System.out.println(sq2);
+	   
+	   System.out.println("zad10");
+	   String str0="";
+	   String str1="wodrze";
+       for(int i=0;i<5;i++){
+           if(i==0){
+               str0=str1;
+           }
+            str1=str0.concat(str1);
+       }
+       System.out.println(str0);
+	   
+	   
+	   
+	   
+	}
+	
+}
