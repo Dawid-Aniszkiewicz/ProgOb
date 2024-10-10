@@ -79,20 +79,30 @@ public class Main
        String sq2=String.format(sq1,"TytulXYZ","AutorXYZ.");
        System.out.println(sq2);
 	   
-	   System.out.println("zad10");
+	   System.out.println("zad11");
 	   String str0="";
-	   String str1="wodrze";
-       for(int i=0;i<5;i++){
+	   String str1="wodrze ";
+       for(int i=0;i<4;i++){
            if(i==0){
                str0=str1;
            }
-            str1=str0.concat(str1);
+            str0=str0.concat(str1);
        }
        System.out.println(str0);
 	   
+	   System.out.println("zad 12");
+        System.out.println("Dzisiaj jest (14-12-2019) godzina (19:32:59)");
+
 	   
-	   
-	   
+	   	System.out.println("zad 13");
+	   System.out.println("znaki pod numerami:");
+	   System.out.println("54 =" +(char) 54);
+	   System.out.println("103 =" +(char) 103);
+	   System.out.println("241 =" +(char) 241);
+	   System.out.println("67 =" +(char) 67);
+	  System.out.println( "9999 =" +(char) 9999);
+	  System.out.println( "8 =" +(char) 8);
+	   System.out.println("174035 =" +(char) 174035);
 	}
 	
 }
