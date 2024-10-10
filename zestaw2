@@ -1,0 +1,41 @@
+public class Main
+{
+	public static void main(String[] args) {
+System.out.println("Zad1");
+	   var w1=23.0+76;
+	   System.out.println("wynik="+w1+ "   Klasa= "+((Object)w1).getClass().getSimpleName());
+	   var w2=41*2.0+3;
+	   System.out.println("wynik="+w2+ "   Klasa= "+((Object)w2).getClass().getSimpleName());
+	   var w3=5-33;
+	   System.out.println("wynik="+w3+ "   Klasa= "+((Object)w3).getClass().getSimpleName());
+	   var w4=109%3;
+	   System.out.println("wynik="+w4+ "   Klasa= "+((Object)w4).getClass().getSimpleName());
+	   var w5=50/2;
+	   System.out.println("wynik="+w5+ "   Klasa= "+((Object)w5).getClass().getSimpleName());
+	   var w6=4|2;
+	   System.out.println("wynik="+w6+ "   Klasa= "+((Object)w6).getClass().getSimpleName());
+	   var w7=3^5;
+	   System.out.println("wynik="+w7+ "   Klasa= "+((Object)w7).getClass().getSimpleName());
+	   var w8=7&9;
+	   System.out.println("wynik="+w8+ "   Klasa= "+((Object)w8).getClass().getSimpleName());
+
+    System.out.println("Zad2");
+    double wynik1 = Math.sqrt(7) - 1.0 / 2;
+        
+        double wynik2 = Math.pow(3, 3) % 2;
+        
+        double wynikk = wynik1 + wynik2;
+        
+        int intwynikk = (int) wynikk;
+        
+        System.out.println("Wynik przed int: " + wynikk);
+        System.out.println("Wynik na int: " + intwynikk);
+
+        double zw1 = 2000/15*8;
+
+        int zw2 = (int) zw1;
+
+        System.out.println("Wynik przed zmiana na int: " + zw1);
+        System.out.println("Wynik po zmianie na int: " + zw2);
+	}
+}
