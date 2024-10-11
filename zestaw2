@@ -37,5 +37,55 @@ System.out.println("Zad1");
 
         System.out.println("Wynik przed zmiana na int: " + zw1);
         System.out.println("Wynik po zmianie na int: " + zw2);
+
+
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        /*
+        //z2zad2
+        double w2c=((3+Math.sqrt(3))/((Math.sqrt(5)/2)/3))+1;
+        System.out.println("wynik 2c="+w2c);
+        double w2d=30%16%6;
+        System.out.println("wynik 2d="+w2d);
+        //z2zad3
+        Scanner input = new Scanner(System.in);
+        System.out.println("podaj slowo");
+        String slowo=input.nextLine();
+        String slowo2=input.nextLine();
+        System.out.println("slowa= "+slowo+","+slowo2);
+        //z2zad4
+        System.out.println("podaj 2 num");
+        String num1=input.nextLine();
+        String num2=input.nextLine();
+        System.out.println("num= "+num1+","+num2);
+
+        System.out.println(num1+"+"+num2+"="+(Integer.valueOf(num1)+Integer.valueOf(num2)));
+        System.out.println(num1+"-"+num2+"="+(Integer.valueOf(num1)-Integer.valueOf(num2)));
+        System.out.println(num1+"x"+num2+"="+(Integer.valueOf(num1)*Integer.valueOf(num2)));
+        System.out.println(num1+"/"+num2+"="+(Integer.valueOf(num1)/Integer.valueOf(num2)));
+        */
+        //z2zad5
+        Scanner input2 = new Scanner(System.in);
+        String numz5=input2.nextLine();
+        Double dbnumz5 =Double.valueOf(numz5);
+        System.out.println("+140"+(dbnumz5 +140));
+        System.out.println("-31"+(dbnumz5 +140));
+        System.out.println("*7"+(dbnumz5 +140));
+        System.out.println("/13"+(dbnumz5 +140));
+        System.out.println("%7"+(dbnumz5 +140));
+        System.out.println("int/7"+(dbnumz5 +140));
+        System.out.println("^45"+(dbnumz5 +140));
+        System.out.println("?"+(dbnumz5 +140));
+        System.out.println("bitowa suma(or)"+(dbnumz5 +140));
+        System.out.println("+XOR"+(dbnumz5 +140));
+        System.out.println("+140"+(dbnumz5 +140));
+        System.out.println("+140"+(dbnumz5 +140));
+
+dokoncz
+
+    }
+}
 	}
 }
