@@ -1,0 +1,71 @@
+public class Main {
+
+    static void trojkipigorejskie(Integer n) {
+        for (int a = 1; a < n; a++) {
+            for (int b = a; b < n; b++) {
+                for (int c = b; c < n; c++) {
+                    if (a * a + b * b == c * c) {
+                        System.out.println(a + "^2 +" + b + "^2=" + c + "^2");
+                    }
+                }
+            }
+        }
+    }
+    static void funKwaRozwiazania(Integer n) {
+        for (int a = 1; a < n; a++) {
+            for (int b = 1; b < n; b++) {
+                for (int c = 1; c < n; c++) {
+                    if ((b*b-4*(a*c))>=0) {
+                        System.out.println(a + "x^2+" + b + "x+" + c + " maja przynajmniej jedno rozw");
+                        System.out.println("wynik delty="+(b*b-4*(a*c)));
+                    }
+                }
+            }
+        }
+    }
+    static void funKwaDelta(Integer n) {
+        for (int a = 1; a < n; a++) {
+            for (int b = 1; b < n; b++) {
+                for (int c = 1; c < n; c++) {
+                        if ((b * b - 4 * (a * c)) >= 0) {
+                            for(int d = 0; d < n/2; d++) {
+                                if (Math.sqrt((b * b - 4 * (a * c))) == d * d) {
+
+                                    System.out.println(a + "x^2+" + b + "x+" + c + " maja przynajmniej jedno rozw");
+                                    System.out.println("wynik delty=" + (b * b - 4 * (a * c)));
+                                    System.out.println("sqrt("+((b * b - 4 * (a * c))+")="+d));
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    }
+   static void liczbyPierwsze(Integer n) {
+        for(int x = 2; x < n; x++) {
+        for(int a = 2; a <= Math.sqrt(n); a++) {
+            for(int b = 2; b <= n; b++) {
+                if (a * b == 0 && a != b) {
+                    System.out.println(a);
+                }
+            }
+            }
+        }
+   }
+
+   static void liczbyPodzielne(Integer m,Integer n) {
+        for(int x = 1; x <=m; x++) {
+        if(x%n==0){
+            System.out.print(x+",");
+        }
+        }
+   }
+    
+    public static void main(String[] args) {
+        trojkipigorejskie(41);
+        funKwaRozwiazania(6);
+        funKwaDelta(6);
+        liczbyPierwsze(64);
+        liczbyPodzielne(64,3);
+    }
+}
