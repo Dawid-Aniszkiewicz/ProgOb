@@ -1,0 +1,91 @@
+public class Main {
+
+    static double[] generujtablice(int n,int minw,int maxw){
+        double tab1[]=new double[n];
+        for (int i=0;i<n;i++){
+            if(minw<=maxw) {
+                tab1[i] = minw;
+                minw = minw + 1;
+            }
+        }
+        return tab1;
+    }
+    static int[] generujtabliceint(int n,int minw,int maxw){
+        int tab1[]=new int[n];
+        for (int i=0;i<n;i++){
+            if(minw<=maxw) {
+                tab1[i] = minw;
+                minw = minw + 1;
+            }
+        }
+        return tab1;
+    }
+    static int tablen(int tab[]){
+        int i=0;
+        int dl=0;
+        while (tab[i] != '\0'){
+            dl++;
+            i++;
+        }
+        return dl;
+    }
+    static void wypisztablice(int tab[],int n,int m){
+        int rudy=0;
+        for(int i=0;i<n;i++){
+            if(i!=0){
+                System.out.println(" ");
+            }
+            for(int j=0;j<m;j++){
+                if(rudy>=tab.length){
+                    System.out.print(0+" ");
+                }
+                else System.out.print(tab[rudy]+" ");
+                rudy++;
+            }
+        }
+    }
+    static void wypisztab(int tab[],int n){
+        for(int i=0;i<n;i++){
+            System.out.print(tab[i]+",");
+        }
+    }
+    static void wypisztabdb(double tab[],int n){
+        for(int i=0;i<n;i++){
+            System.out.print(tab[i]+", ");
+        }
+    }
+    static double[] generujZakres(int n,double minw,double maxw){
+        double tab1[]=new double[n];
+        double zak=(maxw-minw)/(n-1);
+        for (int i=0;i<n;i++){
+                tab1[i] = minw;
+                minw = minw + zak;
+        }
+        return tab1;
+    }
+    static void ilenieparzystch(int tab[]){
+        int np=0;
+        for(int i=0;i<tab.length;i++){
+            if(tab[i]%2!=0){
+                np++;
+            }
+        }
+        System.out.println("ilosc nieparzystych ="+np);
+    }
+    public static void main(String[] args) {
+        int n2=3;
+        int minw2=1;
+        int maxw2=6;
+        int tab1[]=generujtabliceint(7,1,8);
+        double tab2[]=generujZakres(n2,minw2,maxw2);
+        wypisztab(tab1,7);
+        System.out.println(" ");
+        System.out.println("zad7 ");
+        wypisztabdb(tab2,n2);
+        System.out.println(" ");
+        System.out.println("zad2 ");
+        wypisztablice(tab1,3,3);
+        ilenieparzystch(tab1);
+
+    }
+}
