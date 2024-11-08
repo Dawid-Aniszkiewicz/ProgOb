@@ -124,15 +124,20 @@ public class Main {
         int tab2[]={1,2,3,4,5};
         int n,m,a1,r;
         ///zad2
+        System.out.println("Zadanie 2");
         System.out.println("wynikzad2="+czyCiagArytmetyczny(tab));
         System.out.println("wynikzad2="+czyCiagArytmetyczny(tab2));
         ///zad4
-        System.out.println(podciag(tab));
+        System.out.println("Zadanie 4");
+        System.out.println("wynik="+podciag(tab));
         ///zad5
-        System.out.println(podciag(tab,1));
+        System.out.println("Zadanie 5");
+        System.out.println("wynik="+podciag(tab,1));
         ///zad6
+        System.out.println("Zadanie 6");
         sekwencjaCollatza(10,15);
         ///zad7
+        System.out.println("Zadanie 7");
         minMaxsekwencjaCollatza(10,15);
     }
 }
