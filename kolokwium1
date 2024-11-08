@@ -1,0 +1,138 @@
+public class Main {
+    ///zad1
+    /// n=ilosc elementow
+    /// m=rodzaj
+    /// a1-wyraz
+    /// r-roznica
+  /*
+    static int ciagArytmetycznyRodzajuM(int n,int m,int a1,int r){
+
+    }
+
+*/
+///zad2
+    static boolean czyCiagArytmetyczny(int []tab){
+        int r=tab[1]-tab[0];
+        for(int i=0;i<tab.length-1;i++){
+            if(tab[i]+r!=tab[i+1]){
+               return false;
+            }
+            }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ///zad4
+    static int podciag(int[]tab){
+        int max=0;
+        int temp=1;
+        int index=0;
+        for(int i=0;i<tab.length-1;i++){
+            if(tab[i]<tab[i+1]){
+                if(index==i){
+                    index=i;
+                    temp+=2;
+                }
+                else{temp++;}
+            }
+            if(max<temp){
+                max=temp;
+            }
+            index++;
+            temp=1;
+
+        }
+        return max;
+    }
+    ///zad5
+    static int podciag(int[]tab,int r){
+        int max=0;
+        int temp=0;
+        int index=0;
+        for(int i=0;i<tab.length-1;i++){
+            if(tab[i]+r==tab[i+1]){
+                if(index==i){
+                    index=i;
+                    temp+=2;
+                }
+                else{temp++;}
+            }
+            if(max<temp){
+                max=temp;
+            }
+            index++;
+            temp=0;
+
+        }
+        return max;
+    }
+    ///zad6
+    static void sekwencjaCollatza(int n ,int c){
+        System.out.println("start="+c);
+        for(int i=1;i<n+1;i++){
+            if(c%2==0){
+                c=c/2;
+                System.out.println("sekwencja nr"+i+"="+c);
+            }else{
+                c=3*c+1;
+                System.out.println("sekwencja nr"+i+"="+c);
+            }
+        }
+    }
+    ///zad7
+    static void minMaxsekwencjaCollatza(int n ,int c){
+        int min=0;
+        int max=0;
+        int temp;
+        for(int i=1;i<n+1;i++){
+            if(c%2==0){
+                c=c/2;
+                temp=c;
+            }else{
+                c=3*c+1;
+                temp=c;
+            }
+            if(min==0){
+                min=c;
+            }
+            if(max<temp){
+                max=temp;
+            }
+            if(min>temp){
+                min=temp;
+            }
+        }
+        System.out.println("min="+min);
+        System.out.println("max="+max);
+    }
+    public static void main(String[] args) {
+        int tab[]={1,2,0,3,5,1,4};
+        int tab2[]={1,2,3,4,5};
+        int n,m,a1,r;
+        ///zad2
+        System.out.println("wynikzad2="+czyCiagArytmetyczny(tab));
+        System.out.println("wynikzad2="+czyCiagArytmetyczny(tab2));
+        ///zad4
+        System.out.println(podciag(tab));
+        ///zad5
+        System.out.println(podciag(tab,1));
+        ///zad6
+        sekwencjaCollatza(10,15);
+        ///zad7
+        minMaxsekwencjaCollatza(10,15);
+    }
+}
