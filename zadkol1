@@ -1,0 +1,83 @@
+public class Main {
+    public static int[]zad1(int n,int m,int a1,int[]r){
+        int[]wynik=new int[n];
+        wynik[0]=a1;
+        for(int i=1;i<n;i++){
+            int suma=a1;
+            for(int j=0;j<m;j++){
+                suma+=Math.pow(i,j+1)*r[j];
+            }
+            wynik[i]=suma;
+        }
+        return wynik;
+    }
+    public static boolean zad2(int[]tab){
+        int roznica=tab[1]-tab[0];
+        for(int i=1;i<tab.length-1;i++){
+            if(tab[i+1]-tab[i]!=roznica){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean zad3(int[]tab,int m){
+        int[] wynik=new int[tab.length-1];
+        for(int i=0;i<m-1;i++){
+            for(int j=0;j<tab.length-1-i;j++){
+                tab[j]=tab[j+1]-tab[j];
+            }
+        }
+        for(int i=0;i<wynik.length;i++){
+            wynik[i]=tab[i];
+        }
+        if(zad2(wynik)==true){
+            return true;
+        }
+        return false;
+    }
+    public static int zad4(int[]tab){
+        int wynik=0;
+        for(int i=0;i<tab.length;i++){
+            if(tab[i+1]>tab[i]){
+                wynik++;
+            }
+            }
+        return wynik;
+        }
+    ///zestaw 2
+    public static boolean zad1_2(double x,double y,int k){
+        if(Math.abs(x-y)<=Math.pow(10,-k)){
+            return true;
+        }
+        return false;
+    }
+    public static int zad2_2(int s){
+        int i=0;
+            while(!(s>Math.pow(i,2) && s<Math.pow(i+1,2))){
+                i++;
+            }
+            if(Math.abs(s-Math.pow(i,2))>Math.abs(s-Math.pow(i+1,2))){
+                return i+1;
+            }
+        return i;
+    }
+    public static double zad3_2(int s,int n,int k){
+        double x=s-1;
+        double x_next=((n-1)*x+s/Math.pow(x,n-1))/n;
+        while(!zad1_2(x,x_next,k)){
+            x=x_next;
+            x_next=((n-1)*x+s/Math.pow(x,n-1))/n;
+        }
+        return x;
+    }
+
+
+    public static void main(String[] args) {
+        int[] tab=zad1(5,2,1,new int[]{1,3,1});
+        for(int i=1;i<tab.length;i++){
+            System.out.println(tab[i]);
+
+        }
+        System.out.println(zad3_2(2,2,4));
+    }
+}
