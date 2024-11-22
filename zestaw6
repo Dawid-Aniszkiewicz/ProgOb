@@ -1,0 +1,95 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+class Produkt {
+    String nazwa;
+    Float cena;
+    Integer iloscNaMagazynie;
+
+    public Produkt(String nazwa2,Float cena2,Integer iloscNaMagazynie2) {
+        nazwa = nazwa2;
+        cena = cena2;
+        iloscNaMagazynie = iloscNaMagazynie2;
+    }
+    public void wyswietlInformacje(){
+        System.out.println("Produkt="+nazwa);
+        System.out.println("Cena="+cena);
+        System.out.println("ilosc="+iloscNaMagazynie);
+    }
+    public void dodajDoMagazynu(int n){
+        iloscNaMagazynie+=n;
+        System.out.println("Nowa ilosc po dodaniu ="+iloscNaMagazynie);
+    }
+    public void usunZMagazynu(int n){
+        if(iloscNaMagazynie>n){
+            iloscNaMagazynie=iloscNaMagazynie-n;
+            System.out.println("Nowa ilosc po usunieciiu ="+iloscNaMagazynie);
+        }else System.out.println("Ilosc musi byc wieksza niz n  obecna ilosc ="+iloscNaMagazynie);
+    }
+}
+
+class KoszykZakupowy {
+    ArrayList<Produkt> ListaZakupy = new ArrayList<Produkt>();
+
+    public void KoszykZakupowy(ArrayList<Produkt> rudy) {
+        ListaZakupy = rudy;
+    }
+
+    public void dodajProdukt(Produkt p, int ilosc) {
+        if (p.iloscNaMagazynie >= ilosc) {
+            ListaZakupy.add(new Produkt(p.nazwa, p.cena, ilosc));
+            p.iloscNaMagazynie--;
+        } else System.out.println("Brakuje produktu w magazynie lub nie istnieje");
+    }
+
+    public void wyswietlZawartoscKoszyka() {
+        System.out.println("Koszyk zawartosc:");
+        for (int i = 0; i < ListaZakupy.size(); i++) {
+            String s1 = (String.format("Nazwa = %s Cena= %s,ilosc= %s", ListaZakupy.get(i).nazwa, ListaZakupy.get(i).cena, ListaZakupy.get(i).iloscNaMagazynie));
+
+            System.out.println(s1);
+        }
+    }
+
+    public float obliczCalkowitaWartosc() {
+        float wynik = 0;
+        for (int i = 0; i < ListaZakupy.size(); i++) {
+            wynik += ListaZakupy.get(i).cena * ListaZakupy.get(i).iloscNaMagazynie;
+        }
+        return wynik;
+    }
+}
+
+class Zamowienie{
+       KoszykZakupowy kosz;
+       String statusZamowienia;
+       Zamowienie(KoszykZakupowy r,String s){
+           kosz=r;
+           statusZamowienia=s;
+       }
+       public void ustawStatusZamowienia(String status){
+           statusZamowienia=status;
+       }
+       
+    }
+
+public class Main {
+    public static void main(String[] args) {
+        //Zad1
+    Produkt p = new Produkt("banan",1.5F,50);
+    p.wyswietlInformacje();
+    p.dodajDoMagazynu(5);
+    p.usunZMagazynu(8);
+    ArrayList<Produkt>ListaZakupy = new ArrayList<>();
+    //zad2
+    KoszykZakupowy k=new KoszykZakupowy();
+    k.dodajProdukt(p,4);
+    Produkt japki = new Produkt("japki",1.2F,69);
+    k.dodajProdukt(japki,3);
+    k.wyswietlZawartoscKoszyka();
+    System.out.println("Calkowita wartosc ="+k.obliczCalkowitaWartosc());
+    //zad3
+    KoszykZakupowy k2=new KoszykZakupowy();
+    Zamowienie z1=new Zamowienie(k2,"z1");
+    }
+}
