@@ -1,0 +1,226 @@
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.Enumeration;
+
+class Produkt {
+    String nazwa;
+    Float cena;
+    Integer iloscNaMagazynie;
+
+    public Produkt(String nazwa2,Float cena2,Integer iloscNaMagazynie2) {
+        nazwa = nazwa2;
+        cena = cena2;
+        iloscNaMagazynie = iloscNaMagazynie2;
+    }
+    public void wyswietlInformacje(){
+        System.out.println("Produkt="+nazwa);
+        System.out.println("Cena="+cena);
+        System.out.println("ilosc="+iloscNaMagazynie);
+    }
+    public void dodajDoMagazynu(int n){
+        iloscNaMagazynie+=n;
+        System.out.println("Nowa ilosc po dodaniu ="+iloscNaMagazynie);
+    }
+    public void usunZMagazynu(int n){
+        if(iloscNaMagazynie>n){
+            iloscNaMagazynie=iloscNaMagazynie-n;
+            System.out.println("Nowa ilosc po usunieciiu ="+iloscNaMagazynie);
+        }else System.out.println("Ilosc musi byc wieksza niz n  obecna ilosc ="+iloscNaMagazynie);
+    }
+}
+class Magazyn {
+    Dictionary<String,Integer> ProduktM = new Hashtable<>();
+
+    public void MagazynAdd(Produkt p, int i) {
+        ProduktM.put(p.nazwa,i);
+    }
+    public void wyswietlMagazyn(){
+        Enumeration<String>k=ProduktM.keys();
+        while (k.hasMoreElements()) {
+            String key = k.nextElement();
+            System.out.println("Nazwa: " + key + ", Ilosc: "
+                    + ProduktM.get(key));
+        }
+    }
+}
+class Adres{
+    String ulica;
+    int numerDomu;
+    int numerMieszkania;
+    String miasto;
+    int kodPocztowy;
+    public Adres(String ulica,int numerDomu,int numerMieszkania,String miasto,int kodPocztowy) {
+        this.ulica = ulica;
+        this.numerDomu = numerDomu;
+        this.numerMieszkania = numerMieszkania;
+        this.miasto = miasto;
+        this.kodPocztowy = kodPocztowy;
+    }
+    public Adres(String ulica,int numerDomu,String miasto,int kodPocztowy) {
+        this.ulica = ulica;
+        this.numerDomu = numerDomu;
+        this.miasto = miasto;
+        this.kodPocztowy = kodPocztowy;
+    }
+    public void pokaz(){
+        if(this.numerMieszkania==0) {
+            System.out.print("Kod pocztowy: " + String.format("%,d",kodPocztowy+" "));
+            System.out.println("Miasto: " + miasto);
+            System.out.print("Ulica: " + ulica);
+            System.out.print("NumerDomu: " + numerDomu);
+            System.out.print("NumerMieszkania: " + numerMieszkania);
+        }else{
+            System.out.print("Kod pocztowy: " + String.format("%,d",kodPocztowy));
+            System.out.println("Miasto: " + miasto);
+            System.out.print("Ulica: " + ulica);
+            System.out.print("NumerDomu: " + numerDomu);
+        }
+    }
+    //public void przed(){
+
+}
+class KoszykZakupowy {
+    ArrayList<Produkt> ListaZakupy = new ArrayList<Produkt>();
+
+    public void KoszykZakupowy(ArrayList<Produkt> rudy) {
+        ListaZakupy = rudy;
+    }
+
+    public void dodajProdukt(Produkt p, int ilosc) {
+        if (p.iloscNaMagazynie >= ilosc) {
+            ListaZakupy.add(new Produkt(p.nazwa, p.cena, ilosc));
+            p.iloscNaMagazynie--;
+        } else System.out.println("Brakuje produktu w magazynie lub nie istnieje");
+    }
+
+    public void wyswietlZawartoscKoszyka() {
+        System.out.println("Koszyk zawartosc:");
+        for (int i = 0; i < ListaZakupy.size(); i++) {
+            String s1 = (String.format("Nazwa = %s Cena= %s,ilosc= %s", ListaZakupy.get(i).nazwa, ListaZakupy.get(i).cena, ListaZakupy.get(i).iloscNaMagazynie));
+
+            System.out.println(s1);
+        }
+    }
+
+    public float obliczCalkowitaWartosc() {
+        float wynik = 0;
+        for (int i = 0; i < ListaZakupy.size(); i++) {
+            wynik += ListaZakupy.get(i).cena * ListaZakupy.get(i).iloscNaMagazynie;
+        }
+        return wynik;
+    }
+}
+ class Zamowienie {
+    KoszykZakupowy koszyk;
+    String statusZamowienia;
+    String platnosc;
+
+    public Zamowienie(KoszykZakupowy cart, String status, String payment) {
+        koszyk = cart;
+        statusZamowienia = status;
+        platnosc = payment;
+    }
+
+    public void ustawStatusZamowienia(String status) {
+        statusZamowienia = status;
+    }
+
+    public void wyswietlZamowienia() {
+        koszyk.wyswietlZawartoscKoszyka();
+        System.out.println(String.format("Status: %s", statusZamowienia));
+    }
+
+    public void finalizujZamowienie() {
+        if (platnosc == "Opłacone") {
+            statusZamowienia = "Gotowe do wysyłki";
+        }
+    }
+
+    public void zwrocProdukt(String name, int quantity) {
+        ArrayList<Produkt> temp = koszyk.ListaZakupy;
+
+        if (temp.contains(name)) {
+            for(int i=0; i<temp.size(); i++) {
+                if (temp.get(i).nazwa == name) {
+                    if (quantity <= temp.get(i).iloscNaMagazynie) {
+                      //  temp.get(i).iloscNaMagazynie - quantity;
+                    }
+                    else {
+                        temp.get(i).iloscNaMagazynie = 0;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+///zad 4
+ class Klient {
+    String imie;
+    String nazwisko;
+    ArrayList<Zamowienie> listaZamowien;
+
+    public Klient(String name, String surname, ArrayList<Zamowienie> list) {
+        imie = name;
+        nazwisko = surname;
+        listaZamowien = list;
+    }
+
+    public void dodajZamowienie(Zamowienie goods) {
+        listaZamowien.add(goods);
+    }
+
+    public void wyswietlHistorieZamowien() {
+        System.out.println(String.format("Historia zamówień klienta: %s %s\n", imie, nazwisko));
+        for(int i = 0; i < listaZamowien.size(); i++) {
+            listaZamowien.get(i).wyswietlZamowienia();
+            System.out.println("");
+        }
+    }
+
+    public double obliczLacznyKosztZamowien() {
+        double total = 0;
+
+        for (int i = 0; i < listaZamowien.size(); i++) {
+            total += listaZamowien.get(i).koszyk.obliczCalkowitaWartosc();
+        }
+
+        return total;
+    }
+}
+
+///zad 5
+ class Sklep {
+    ArrayList<Produkt> produkty;
+
+    public Sklep(ArrayList<Produkt> list) {
+        produkty = list;
+    }
+
+    public void dodajProdukt(Produkt goods) {
+        produkty.add(goods);
+    }
+
+    public void wyswietlOferty() {
+        System.out.println("Oferty sklepu:");
+        for(int i = 0; i < produkty.size(); i++) {
+            System.out.println(String.format("%s Cena: %.2f Ilość: %d", produkty.get(i).nazwa,
+                    produkty.get(i).cena, produkty.get(i).iloscNaMagazynie));
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Produkt p = new Produkt("cos", 1.4F, 17);
+        p.wyswietlInformacje();
+        Magazyn m = new Magazyn();
+       m.MagazynAdd(p, p.iloscNaMagazynie);
+        m.wyswietlMagazyn();
+        Adres rudy = new Adres("Witosa",1,17,"Ełk",19300);
+        rudy.pokaz();
+
+    }
+}
+
