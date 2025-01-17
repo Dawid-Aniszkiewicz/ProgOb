@@ -1,0 +1,52 @@
+import com.sun.source.tree.Tree;
+
+import java.util.*;
+
+public class TestPunkt {
+    public static <T> void printUnique(Collection<T> items) {
+        Set<T>uniqueElements = new HashSet<>(items);
+
+        for(T item : uniqueElements) {
+            System.out.println(item);
+        }
+    }
+    public <T> ArrayList<T> mergelists(ArrayList<T> list1, ArrayList<T> list2) {
+        ArrayList<T> merged = new ArrayList<>();
+        merged.addAll(list1);
+        merged.addAll(list2);
+        return merged;
+    }
+
+    public static <T extends Comparable<T>> TreeSet <T>findElementsInRange (TreeSet<T>drzewo, T lowerBound,T upperBound){
+        TreeSet<T>dzewo = new TreeSet<T>();
+        for(T item : drzewo){
+            if(item.compareTo(lowerBound)>=0 && item.compareTo(upperBound)<=0){
+                dzewo.add(item);
+            }
+        }
+        return dzewo;
+    }
+    public static <T>boolean isPalindrome(LinkedList<T>l1){
+        if(l1.size()==1){
+            return true;
+        }
+        for(int i=0;i<l1.size()/2;i++){
+            if(l1.get(i)==l1.get(l1.size()-1)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(1);
+        list.add(2);
+        printUnique(list);
+        //System.out.println(findElementsInRange(list,2,4));
+        System.out.println(isPalindrome(list));
+    }
+}
